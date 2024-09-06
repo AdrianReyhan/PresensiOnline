@@ -44,4 +44,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function karyawan()
+    {
+        return $this->hasOne(Karyawan::class);
+    }
+
+    // public function cuti()
+    // {
+    //     return $this->hasOne(Cuti::class);
+    // }
+
+
+
+    public function hasRole($role)
+    {
+        return $this->role == $role; // Sesuaikan dengan logika peran Anda
+    }
 }

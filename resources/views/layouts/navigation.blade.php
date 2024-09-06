@@ -19,8 +19,8 @@
         </a>
     </li>
 
-    <li class="nav-item {{ request()->routeIs('users.index') ? 'active' : '' }}">
-        <a href="{{ route('users.index') }}" class="nav-link">
+    <li class="nav-item {{ request()->routeIs('karyawans.index') ? 'active' : '' }}">
+        <a href="{{ route('karyawans.index') }}" class="nav-link">
             <span class="sidebar-icon me-3">
                 <i class="fa-solid fa-users"></i>
             </span>

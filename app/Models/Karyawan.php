@@ -25,7 +25,14 @@ class Karyawan extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            $model->no_id = 'DCPSMG-' . strtoupper(Str::random(4));
+            if (empty($model->no_id)) {
+                $model->no_id = 'DCPSMG-' . str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT);
+            }
         });
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

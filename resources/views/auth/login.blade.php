@@ -1,9 +1,13 @@
 @extends('layouts.guest')
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 d-flex align-items-center justify-content-center">
-                <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+        <div class="row justify-content-center bg-white shadow-soft border rounded border-light">
+             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                <!-- Left Image -->
+                <img src="{{ asset('img/login.png') }}" alt="Left Image" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                <div class="bg-white shadow-lg border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                     <div class="text-center text-md-center mb-4 mt-md-0">
                         <h1 class="mb-3 h3">{{ __('Welcome back') }}</h1>
                     </div>
@@ -53,7 +57,7 @@
                                 @enderror
                             </div>
                             <!-- End of Form -->
-                            <div class="d-flex justify-content-between align-items-top mb-4">
+                            {{-- <div class="d-flex justify-content-between align-items-top mb-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember">
                                     <label class="form-check-label mb-0" for="remember">
@@ -65,7 +69,7 @@
                                         {{ __('Lost password?') }}
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="d-grid">
