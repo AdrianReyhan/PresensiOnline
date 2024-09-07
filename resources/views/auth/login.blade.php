@@ -1,15 +1,18 @@
 @extends('layouts.guest')
 @section('content')
     <div class="container">
-        <div class="row justify-content-center bg-white shadow-soft border rounded border-light">
-             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+        <div class="row justify-content-center bg-red-300 shadow-2lg border rounded border-light" style="background: #b74c4c;">
+            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
                 <!-- Left Image -->
-                <img src="{{ asset('img/login.png') }}" alt="Left Image" class="img-fluid">
+                <img src="{{ asset('img/oe.png') }}" alt="Left Image" class="img-fluid">
             </div>
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
-                <div class="bg-white shadow-lg border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
-                    <div class="text-center text-md-center mb-4 mt-md-0">
-                        <h1 class="mb-3 h3">{{ __('Welcome back') }}</h1>
+                <div class="bg-white m-4 shadow-lg border rounded border-light p-4 p-md-5 w-100 fmxw-500">
+                    <div class="text-center text-sm-center mb-4 mt-md-0">
+                        <span class="sidebar-icon me-3">
+                            <img src="{{ asset('img/smg.png') }}" height="80" width="70" alt="Dukcapil Logo">
+                        </span>
+                        <h3 class="mb-3 h5 pt-3 font-bold" style="font-weight: 700; color: #2b2a2b;">{{ __('Absensi Pegawai Dukcapil Semarang') }}</h3>
                     </div>
 
                     <form class="mt-4" action="{{ route('login') }}" method="POST">

@@ -3,9 +3,9 @@
 @section('content')
     <div class="main py-4">
         <div class="card card-body border-0 shadow table-wrapper table-responsive">
-            <h2 class="mb-4 h5">{{ __('List Data User') }}</h2>
+            <h2 class="mb-4 h5">{{ __('List Data Pegawai') }}</h2>
             <ol class="breadcrumb float-right">
-                <li class="breadcrumb-item"><a href="{{ route('karyawans.index') }}">User</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('karyawans.index') }}">Pegawai</a></li>
                 <li class="breadcrumb-item active">Index</li>
             </ol>
             <div class="row align-items-center justify-content-between">
@@ -16,7 +16,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
-                        Tambah User
+                        Tambah Pegawai
                     </a>
                 </div>
                 <div class="col col-md-6 col-lg-3 col-xl-4">
