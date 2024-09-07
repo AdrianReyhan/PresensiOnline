@@ -78,4 +78,38 @@ class UserController extends Controller
         $tambah_user->save();
         return redirect('users')->with('success', 'Data karyawan telah ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id); // Use $user instead of $users
+        return view('admin.user.edit', compact('user')); 
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'no_id' => 'required',
+            'role' => 'required',
+            'tanggal_lahir' => 'required|date',
+            'status' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|string',
+            'telepon' => 'required|string|max:15',
+        ]);
+
+
+        $user = User::find($id); 
+        if (!$user) {
+            return redirect()->route('users.index')->with('error', 'User Tidak Ditemukan.');
+        }
+        $user->update($validatedData);
+        return redirect('users')->with('success', 'Data karyawan telah diubah.');
+    }
+
+    public function destroy($id)
+    {
+        $users = User::findOrFail($id);
+        $users->delete();
+        return redirect('users')->with('danger', 'User Berhasil Dihapus');
+    }
 }
