@@ -35,6 +35,15 @@ class KaryawanController extends Controller
         return view('admin.karyawan.index', compact('karyawans', 'users'));
     }
 
+    public function show($id)
+    {
+        $karyawan = Karyawan::find($id);
+        if (!$karyawan) {
+            return redirect()->route('admin.karyawan.index')->with('error', 'Karyawan Tidak Ditemukan.');
+        }
+        return view('admin.karyawan.show', ['karyawan' => $karyawan]);
+    }
+
     public function create()
     {
         $users = User::all();
