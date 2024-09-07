@@ -12,7 +12,7 @@
                     <th class="border-0">Global Rank</th>
                     <th class="border-0">Traffic Share</th> --}}
 
-                    <th class="border-0 rounded-end">Aksi</th>
+                    <th class="border-0 rounded-end text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,15 +23,27 @@
                         <td><span class="fw-normal">{{ $karyawan->no_id }}</span></td>
                         <td><span class="fw-normal">{{ $karyawan->status }}</span></td>
                         <td><span class="fw-normal">{{ $karyawan->jenis_kelamin }}</span></td>
-                        <td>
-                            <span class="fw-normal">
-                                @include('components.info-button', [
-                                    'url' => 'karyawans',
-                                    'id' => $karyawan->id,
-                                ])
-                                {{-- @include('components.edit-button', ['url' => 'karyawans', 'id' => $karyawan->id])
-                    @include('components.delete-button', ['url' => 'karyawans', 'id' => $karyawan->id]) --}}
-                            </span>
+                        <td class="fw-normal">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div class="btn-group">
+                                    @include('components.info-button', [
+                                        'url' => 'karyawans',
+                                        'id' => $karyawan->id,
+                                    ])
+                                    @include('components.edit-button', [
+                                        'url' => 'karyawans',
+                                        'id' => $karyawan->id,
+                                    ])
+                                    @include('components.delete-button', [
+                                        'url' => 'karyawans',
+                                        'id' => $karyawan->id,
+                                    ]) 
+                                    {{-- @include('components.reset-password', [
+                                        'url' => 'karyawans',
+                                        'id' => $karyawan->id,
+                                    ]) --}}
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

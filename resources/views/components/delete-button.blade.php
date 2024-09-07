@@ -1,4 +1,4 @@
-<form id="delete-form-{{ $id }}" action="{{ url($url, $id) }}" method="post" 
+<form id="delete-form-{{ $id }}" action="{{ url($url, $id) }}" method="post" class="mx-1"
       onclick="event.preventDefault(); deleteConfirmation({{ $id }})">
     @csrf
     @method('delete')

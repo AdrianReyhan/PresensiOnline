@@ -22,12 +22,12 @@
                             {{-- <p><strong>Role: </strong>{{ $karyawan->user->role }}</p> --}}
                             <div class="d-flex justify-content-center pt-2">
                                 <span class="mx-2 ">
-                                    @include('components.back-button', [
+                                    @include('components.back-besar-button', [
                                         'url' => 'karyawans',
                                         'id' => $karyawan->id,
                                     ])
                                 </span>
-                                <span class="mx-2">
+                                {{-- <span class="mx-2">
                                     @include('components.edit-button', [
                                         'url' => 'karyawans',
                                         'id' => $karyawan->id,
@@ -38,7 +38,7 @@
                                         'url' => 'karyawans',
                                         'id' => $karyawan->id,
                                     ])
-                                </span>
+                                </span> --}}
                             </div>
                         </div>
                     </div>
