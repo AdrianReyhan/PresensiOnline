@@ -8,7 +8,7 @@
                 <li class="breadcrumb-item"><a href="{{ route('users.index') }}">User</a></li>
                 <li class="breadcrumb-item active">Edit</li>
             </ol>
-            @include('components.back-besar-button', ['url' => url('users/' . $user->id)])
+            @include('components.back-besar-button', ['url' => 'users', 'id' => $user->id])
 
             <form action="{{ url('users/' . $user->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
