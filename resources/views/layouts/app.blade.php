@@ -88,11 +88,32 @@
                 text: 'Yakin ingin menghapus data ini?',
                 icon: 'warning',
                 showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Ya, hapus',
                 cancelButtonText: 'Batal',
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById('delete-form-' + id).submit();
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function confirmResetPassword(url) {
+            Swal.fire({
+                title: 'Konfirmasi Reset Password',
+                text: "Apakah Anda yakin ingin mereset password pengguna ini?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, Reset Password',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url; // Redirect to the reset password URL
                 }
             });
         }

@@ -26,7 +26,7 @@ class UserController extends Controller
             });
         }
 
-        $users = $query->paginate(10); 
+        $users = $query->paginate(10);
 
         if ($request->ajax()) {
             return view('admin.user.table', compact('users'))->render();
@@ -82,7 +82,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id); // Use $user instead of $users
-        return view('admin.user.edit', compact('user')); 
+        return view('admin.user.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
@@ -98,18 +98,34 @@ class UserController extends Controller
         ]);
 
 
-        $user = User::find($id); 
+        $user = User::find($id);
         if (!$user) {
             return redirect()->route('users.index')->with('error', 'User Tidak Ditemukan.');
         }
         $user->update($validatedData);
-        return redirect('users')->with('success', 'Data karyawan telah diubah.');
+        return redirect('users')->with('success', 'Data Pegawai telah diubah.');
     }
 
     public function destroy($id)
     {
         $users = User::findOrFail($id);
         $users->delete();
-        return redirect('users')->with('danger', 'User Berhasil Dihapus');
+        return redirect('users')->with('danger', 'Pegawai Berhasil Dihapus');
+    }
+
+    public function resetPass($id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return redirect('users')->with('error', 'Pegawai tidak ditemukan.');
+        }
+
+        // Reset the user's password
+        $user->password = bcrypt('user123');
+        $user->save();
+
+        // Redirect back with a success message
+        return redirect('users')->with('success', 'Password Pegawai berhasil direset menjadi user123.');
     }
 }

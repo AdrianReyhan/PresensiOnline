@@ -15,11 +15,11 @@
                         <h4 class="h3 p-2">{{ $user->name }}</h4>
 
                         <div class="text-start">
-                            <p><strong>No Id: </strong>{{ $user->id }}</p>
-                            <p><strong>Status: </strong>{{ $user->email }}</p>
-                            {{-- <p><strong>Jenis Kelamin: </strong>{{ $user->jenis_kelamin }}</p>
-                            <p><strong>Telepon: </strong>{{ $user->telepon }}</p> --}}
-                            {{-- <p><strong>Role: </strong>{{ $karyawan->user->role }}</p> --}}
+                            <p><strong>No Id: </strong>{{ $user->no_id }}</p>
+                            <p><strong>Nama: </strong>{{ $user->name }}</p>
+                            <p><strong>Email: </strong>{{ $user->email }}</p>
+                            <p><strong>Tanggal Lahir: </strong>{{ $user->tanggal_lahir ?? '-' }}</p>
+                            <p><strong>Telepon: </strong>{{ $user->telepon ?? '-'}}</p>
                             <div class="d-flex justify-content-center pt-2">
                                 <span class="mx-2 ">
                                     @include('components.back-besar-button', [
@@ -37,8 +37,8 @@
                                     @include('components.delete-button', [
                                         'url' => 'karyawans',
                                         'id' => $karyawan->id,
-                                    ])
-                                </span> --}}
+                                    ]) --}}
+                                </span>
                             </div>
                         </div>
                     </div>

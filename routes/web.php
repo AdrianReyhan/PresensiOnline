@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('users', UserController::class);
-    // Route::get('karyawans/reset-password/{id}', [KaryawanController::class, 'resetPass'])->name('karyawans.reset');
+    Route::get('users/reset-password/{id}', [UserController::class, 'resetPass'])->name('users.reset');
 
     // Route::get('users', [\App\Http\Controllers\KaryawanController::class, 'index'])->name('users.index');
 

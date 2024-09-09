@@ -8,9 +8,9 @@
                     <th class="border-0">Role</th>
                     <th class="border-0">Nomor ID</th>
                     <th class="border-0">Jenis Kelamin</th>
-                    {{-- <th class="border-0">Category</th>
-                    <th class="border-0">Global Rank</th>
-                    <th class="border-0">Traffic Share</th> --}}
+                    <th class="border-0">Status</th>
+                    {{-- <th class="border-0">Global Rank</th> --}}
+                    {{-- <th class="border-0">Traffic Share</th> --}}
 
                     <th class="border-0 rounded-end text-center">Aksi</th>
                 </tr>
@@ -18,13 +18,13 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <td><span class="fw-normal">{{ $user->id }}</span></td>
+                        <td><span class="fw-normal">{{ $loop->iteration }}</span></td>
                         <td><span class="fw-normal">{{ $user->name }}</span></td>
                         <td><span class="fw-normal">{{ $user->role }}</span></td>
                         <td><span class="fw-normal">{{ $user->no_id }}</span></td>
-                        <td><span class="fw-normal">{{ $user->email }}</span></td>
-                        {{-- <td><span class="fw-normal">{{ $user->status }}</span></td>
-                        <td><span class="fw-normal">{{ $user->jenis_kelamin }}</span></td> --}}
+                        <td><span class="fw-normal">{{ $user->jenis_kelamin ?? '-' }}</span></td>
+                        <td><span class="fw-normal">{{ $user->status ?? '-'}}</span></td>
+                        {{-- <td><span class="fw-normal">{{ $user->jenis_kelamin }}</span></td> --}}
                         <td class="fw-normal">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="btn-group">
@@ -40,10 +40,10 @@
                                         'url' => 'users',
                                         'id' => $user->id,
                                     ]) 
-                                    {{-- @include('components.reset-password', [
-                                        'url' => 'karyawans',
-                                        'id' => $karyawan->id,
-                                    ]) --}}
+                                    @include('components.reset-password', [
+                                        'url' => 'users',
+                                        'id' => $user->id,
+                                    ])
                                 </div>
                             </div>
                         </td>

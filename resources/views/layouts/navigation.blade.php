@@ -24,7 +24,7 @@
             <span class="sidebar-icon me-3">
                  <i class="fa-solid fa-users"></i>
             </span>
-            <span class="sidebar-text">{{ __('User') }}</span>
+            <span class="sidebar-text">{{ __('Pegawai') }}</span>
         </a>
     </li> 
     {{-- <li class="nav-item {{ request()->routeIs('karyawans.index') ? 'active' : '' }}">
