@@ -22,7 +22,13 @@ class UserController extends Controller
             $search = $request->get('search');
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%") // Menggunakan 'name' bukan 'nama' sesuai dengan kolom di tabel users
-                    ->orWhere('email', 'like', "%{$search}%");
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('role', 'like', "%{$search}%")
+                    ->orWhere('no_id', 'like', "%{$search}%")
+                    ->orWhere('status', 'like', "%{$search}%")
+                    ->orWhere('jenis_kelamin', 'like', "%{$search}%")
+                    ->orWhere('telepon', 'like', "%{$search}%")
+                    ->orWhere('tanggal_lahir', 'like', "%{$search}%");
             });
         }
 
