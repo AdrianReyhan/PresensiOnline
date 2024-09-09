@@ -44,7 +44,7 @@
             <span class="sidebar-text">&nbsp;{{ __('Data Presensi') }}</span>
         </a>
     </li>
-    <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
+    {{-- <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
         <a href="{{ route('about') }}" class="nav-link">
             <span class="sidebar-icon me-3">
                 <i class="fa-solid fa-calendar-days"></i>
@@ -67,7 +67,7 @@
             </span>
             <span class="sidebar-text">&nbsp;&nbsp;{{ __('Rekapan') }}</span>
         </a>
-    </li>
+    </li> --}}
 
     {{-- <li class="nav-item">
         <span class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
