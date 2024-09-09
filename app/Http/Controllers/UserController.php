@@ -69,7 +69,7 @@ class UserController extends Controller
         $tambah_user->name = $request->name;
         $tambah_user->email = $request->email;
         $tambah_user->password = 'user123';
-        $tambah_user->role = 'karyawan';
+        $tambah_user->role = 'pegawai';
         $tambah_user->no_id = $request->no_id;
         $tambah_user->tanggal_lahir = $request->tanggal_lahir;
         $tambah_user->status = $request->status;
