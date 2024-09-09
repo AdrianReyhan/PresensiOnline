@@ -181,7 +181,7 @@
                                     </svg>
                                 </span>
                                 <select id="role" class="form-control" name="role" required>
-                                    <option value="karyawan">Karyawan</option>
+                                    <option value="pegawai">Pegawai</option>
                                     <!-- Tambahkan opsi lain jika diperlukan -->
                                 </select>
                             </div>

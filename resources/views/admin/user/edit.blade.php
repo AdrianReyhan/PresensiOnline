@@ -63,9 +63,9 @@
                 <div class="form-group">
                     <label for="role">Role</label>
                     <select name="role" id="role" class="form-select" required>
+                        <option value="pegawai" {{ old('role', $user->role) === 'pegawai' ? 'selected' : '' }}>pegawai
                         <option value="admin" {{ old('role', $user->role) === 'admin' ? 'selected' : '' }}>admin
                         </option>
-                        <option value="karyawan" {{ old('role', $user->role) === 'karyawan' ? 'selected' : '' }}>karyawan
                     </select>
                 </div>
 

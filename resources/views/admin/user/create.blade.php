@@ -31,12 +31,12 @@
                                 </div>
                             </div>
 
-                            <!-- No ID -->
+                            {{-- <!-- No ID -->
                             <div class="col-md-6 mb-3">
                                 <label for="no_id" class="form-label">No ID</label>
                                 <input type="text" class="form-control" id="no_id" name="no_id"
                                     placeholder="Biarkan kosong untuk auto-generate">
-                            </div>
+                            </div> --}}
 
                             <!-- Tanggal Lahir -->
                             <div class="col-md-6 mb-3">
