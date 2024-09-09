@@ -47,7 +47,7 @@ class KaryawanController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('admin.karyawan.create', compact('users'));
+        return view('admin.user.create', compact('users'));
     }
 
     public function store(Request $request)

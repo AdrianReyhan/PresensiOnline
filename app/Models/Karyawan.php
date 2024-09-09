@@ -17,7 +17,6 @@ class Karyawan extends Model
         'status',
         'jenis_kelamin',
         'telepon',
-        'user_id',
     ];
 
     protected static function boot()
@@ -33,6 +32,6 @@ class Karyawan extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class, 'karyawan_id');
     }
 }

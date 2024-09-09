@@ -20,6 +20,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'no_id',
+        'tanggal_lahir',
+        'status',
+        'jenis_kelamin',
+        'telepon',
     ];
 
     /**
@@ -45,9 +51,20 @@ class User extends Authenticatable
         ];
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->no_id)) {
+                $model->no_id = 'DCPSMG-' . str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT);
+            }
+        });
+    }
+
     public function karyawan()
     {
-        return $this->hasOne(Karyawan::class);
+        return $this->belongsTo(Karyawan::class, 'karyawan_id');
     }
 
     // public function cuti()
@@ -57,8 +74,8 @@ class User extends Authenticatable
 
 
 
-    public function hasRole($role)
-    {
-        return $this->role == $role; // Sesuaikan dengan logika peran Anda
-    }
+    // public function hasRole($role)
+    // {
+    //     return $this->role == $role; // Sesuaikan dengan logika peran Anda
+    // }
 }
