@@ -67,6 +67,8 @@ class User extends Authenticatable
         return $this->belongsTo(Karyawan::class, 'karyawan_id');
     }
 
+
+
     // public function cuti()
     // {
     //     return $this->hasOne(Cuti::class);
@@ -78,4 +80,11 @@ class User extends Authenticatable
     // {
     //     return $this->role == $role; // Sesuaikan dengan logika peran Anda
     // }
+
+    public function catalog()
+    {
+        return $this->hasMany(Catalog::class,'user_id');
+    }
+
+    
 }
