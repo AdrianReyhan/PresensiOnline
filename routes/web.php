@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('users', UserController::class);
     Route::get('users/reset-password/{id}', [UserController::class, 'resetPass'])->name('users.reset');
+    Route::resource('presensis', PresensiController::class);
 
     // Route::get('users', [\App\Http\Controllers\KaryawanController::class, 'index'])->name('users.index');
 

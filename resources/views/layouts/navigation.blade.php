@@ -36,8 +36,8 @@
         </a>
     </li> --}}
 
-    <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
-        <a href="{{ route('about') }}" class="nav-link">
+    <li class="nav-item {{ request()->routeIs('presensis.index') ? 'active' : '' }}">
+        <a href="{{ route('presensis.index') }}" class="nav-link">
             <span class="sidebar-icon me-3">
                 <i class="fa-solid fa-fingerprint"></i>
             </span>

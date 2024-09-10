@@ -62,9 +62,14 @@ class User extends Authenticatable
         });
     }
 
-    public function karyawan()
+    // public function karyawan()
+    // {
+    //     return $this->belongsTo(Karyawan::class, 'karyawan_id');
+    // }
+
+    public function presensis()
     {
-        return $this->belongsTo(Karyawan::class, 'karyawan_id');
+        return $this->hasMany(Presensi::class);
     }
 
     // public function cuti()

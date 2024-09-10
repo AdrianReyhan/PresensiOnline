@@ -15,6 +15,7 @@
                         <h4 class="h3 p-2">{{ $user->name }}</h4>
 
                         <div class="text-start">
+                            <p><strong>Role: </strong>{{ $user->role }}</p>
                             <p><strong>No Id: </strong>{{ $user->no_id }}</p>
                             <p><strong>Nama: </strong>{{ $user->name }}</p>
                             <p><strong>Email: </strong>{{ $user->email }}</p>
