@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('catalogs', function (Blueprint $table) {
             $table->id();
-            $table->integer('created_by');
-            $table
+            $table->string('created_by');
             $table->text('description');
             $table->timestamps();
 
-            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('created_by')->references('no_id')->on('users');
 
         });
     }

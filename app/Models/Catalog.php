@@ -11,9 +11,9 @@ class Catalog extends Model
 
     protected $table = 'catalogs';
 
-    protected $fillable =['user_id', 'description'];
+    protected $fillable =['created_by', 'description'];
 
-    public function user(){
-        return $this->belongsTo(User::class,'user_id');
+    public function catalogUser(){
+        return $this->belongsTo(User::class,'created_by');
     }
 }
