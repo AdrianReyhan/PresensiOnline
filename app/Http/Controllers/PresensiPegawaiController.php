@@ -17,6 +17,7 @@ class PresensiPegawaiController extends Controller
     {
         $presensis = Presensi::paginate(10);
         $users = User::paginate(10);
-        return view('admin.presensi.index', compact('presensis', 'users'));
+        return view('pegawai.presensi.index', compact('presensis', 'users'));
     }
+    
 }
