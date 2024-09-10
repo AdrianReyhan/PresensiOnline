@@ -3,14 +3,14 @@
 @section('content')
     <div class="main py-4">
         <div class="card card-body border-0 shadow table-wrapper table-responsive">
-            <h2 class="mb-4 h5">{{ __('List Data Pegawai') }}</h2>
+            <h2 class="mb-4 h5">{{ __('List Absensi') }}</h2>
             <ol class="breadcrumb float-right">
-                <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Pegawai</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('presensis.index') }}">Presensi</a></li>
                 <li class="breadcrumb-item active">Index</li>
             </ol>
             <div class="row align-items-center justify-content-between">
-                <div class="col-auto">
-                    <a href="{{ route('users.create') }}" class="btn btn-gray-800 d-inline-flex align-items-center">
+                {{-- <div class="col-auto">
+                    <a href="{{ route('presensis.create') }}" class="btn btn-gray-800 d-inline-flex align-items-center">
                         <svg class="icon icon-sm me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -18,7 +18,7 @@
                         </svg>
                         Tambah Pegawai
                     </a>
-                </div>
+                </div> --}}
                 <div class="col col-md-6 col-lg-3 col-xl-4">
                     <div class="input-group">
                         <span class="input-group-text" id="basic-addon1">
@@ -37,8 +37,8 @@
 
             </div>
 
-            <div id="user-table">
-                @include('admin.user.table', ['users' => $users])
+            <div id="presensi-table">
+                @include('admin.presensi.table', ['presensis' => $presensis])
             </div>
         </div>
     </div>
@@ -49,15 +49,14 @@
         document.getElementById('search').addEventListener('input', function() {
             let query = this.value;
 
-            fetch(`{{ route('users.index') }}?search=${query}`, {
+            fetch(`{{ route('presensis.index') }}?search=${query}`, {
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest'
                     }
                 })
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('user-table').innerHTML = data;
-                    document.getElementById('karyawan-table').innerHTML = data;
+                    document.getElementById('presensi-table').innerHTML = data;
                 });
         });
     </script>

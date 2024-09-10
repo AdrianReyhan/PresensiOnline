@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\PresensiController;
+use App\Http\Controllers\PresensiPegawaiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -13,15 +15,22 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware('auth')->group(function () {
-    Route::view('about', 'about')->name('about');
-
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Rute untuk admin dengan prefix 'admin'
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::view('about', 'about')->name('admin.about');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.home');
     Route::resource('users', UserController::class);
-    Route::get('users/reset-password/{id}', [UserController::class, 'resetPass'])->name('users.reset');
+    Route::get('users/reset-password/{id}', [UserController::class, 'resetPass'])->name('admin.users.reset');
+    Route::resource('presensis', PresensiController::class);
+    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
+    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+});
 
-    // Route::get('users', [\App\Http\Controllers\KaryawanController::class, 'index'])->name('users.index');
-
+// Rute untuk pegawai dengan prefix 'pegawai'
+Route::prefix('pegawai')->middleware(['auth', 'pegawai'])->group(function () {
+    Route::view('about', 'about')->name('pegawai.about');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('pegawai.home');
+    Route::resource('presensis', PresensiPegawaiController::class);
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
