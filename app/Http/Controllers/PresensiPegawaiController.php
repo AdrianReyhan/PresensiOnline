@@ -6,7 +6,7 @@ use App\Models\Presensi;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class PegawaiPresensiController extends Controller
+class PresensiPegawaiController extends Controller
 {
     public function __construct()
     {
@@ -16,7 +16,7 @@ class PegawaiPresensiController extends Controller
     public function index()
     {
         $presensis = Presensi::paginate(10);
-        $users = User::pagginate(10);
-        return view('pegawai.presensi.index', compact('presensis', 'users'));
+        $users = User::paginate(10);
+        return view('admin.presensi.index', compact('presensis', 'users'));
     }
 }

@@ -18,16 +18,16 @@
             <span class="sidebar-text">{{ __('Dashboard') }}</span>
         </a>
     </li>
-
-    <li class="nav-item {{ request()->routeIs('users.index') ? 'active' : '' }}">
-        <a href="{{ route('users.index') }}" class="nav-link">
-            <span class="sidebar-icon me-3">
-                 <i class="fa-solid fa-users"></i>
-            </span>
-            <span class="sidebar-text">{{ __('Pegawai') }}</span>
-        </a>
-    </li> 
-    {{-- <li class="nav-item {{ request()->routeIs('karyawans.index') ? 'active' : '' }}">
+    @if (Auth::check() && Auth::user()->role === 'admin')
+        <li class="nav-item {{ request()->routeIs('users.index') ? 'active' : '' }}">
+            <a href="{{ route('users.index') }}" class="nav-link">
+                <span class="sidebar-icon me-3">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+                <span class="sidebar-text">{{ __('Pegawai') }}</span>
+            </a>
+        </li>
+        {{-- <li class="nav-item {{ request()->routeIs('karyawans.index') ? 'active' : '' }}">
         <a href="{{ route('karyawans.index') }}" class="nav-link">
             <span class="sidebar-icon me-3">
                 <i class="fa-solid fa-users"></i>
@@ -35,15 +35,19 @@
             <span class="sidebar-text">{{ __('Pegawai') }}</span>
         </a>
     </li> --}}
+    @endif
 
-    <li class="nav-item {{ request()->routeIs('presensis.index') ? 'active' : '' }}">
-        <a href="{{ route('presensis.index') }}" class="nav-link">
-            <span class="sidebar-icon me-3">
-                <i class="fa-solid fa-fingerprint"></i>
-            </span>
-            <span class="sidebar-text">&nbsp;{{ __('Data Presensi') }}</span>
-        </a>
-    </li>
+    @if (Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'pegawai'))
+        <li class="nav-item {{ request()->routeIs('presensis.index') ? 'active' : '' }}">
+            <a href="{{ route('presensis.index') }}" class="nav-link">
+                <span class="sidebar-icon me-3">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </span>
+                <span class="sidebar-text">&nbsp;{{ __('Data Presensi') }}</span>
+            </a>
+        </li>
+    @endif
+
     {{-- <li class="nav-item {{ request()->routeIs('about') ? 'active' : '' }}">
         <a href="{{ route('about') }}" class="nav-link">
             <span class="sidebar-icon me-3">
