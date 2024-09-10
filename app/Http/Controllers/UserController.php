@@ -109,7 +109,7 @@ class UserController extends Controller
             return redirect()->route('users.index')->with('error', 'User Tidak Ditemukan.');
         }
         $user->update($validatedData);
-        return redirect('users')->with('success', 'Data Pegawai telah diubah.');
+        return redirect('admin/users')->with('success', 'Data Pegawai telah diubah.');
     }
 
     public function destroy($id)

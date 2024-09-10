@@ -24,7 +24,7 @@
                             <div class="d-flex justify-content-center pt-2">
                                 <span class="mx-2 ">
                                     @include('components.back-besar-button', [
-                                        'url' => 'users',
+                                        'url' => 'admin/users',
                                         'id' => $user->id,
                                     ])
                                 </span>

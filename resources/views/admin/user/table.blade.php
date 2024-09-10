@@ -29,19 +29,19 @@
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="btn-group">
                                     @include('components.info-button', [
-                                        'url' => 'users',
+                                        'url' => 'admin/users',
                                         'id' => $user->id,
                                     ])
                                     @include('components.edit-button', [
-                                        'url' => 'users',
+                                        'url' => 'admin/users',
                                         'id' => $user->id,
                                     ])
                                     @include('components.delete-button', [
-                                        'url' => 'users',
+                                        'url' => 'admin/users',
                                         'id' => $user->id,
                                     ]) 
                                     @include('components.reset-password', [
-                                        'url' => 'users',
+                                        'url' => 'admin/users',
                                         'id' => $user->id,
                                     ])
                                 </div>
