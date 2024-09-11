@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catalogs', function (Blueprint $table) {
+        Schema::create('logbook', function (Blueprint $table) {
             $table->id();
-            $table->string('created_by');
+            $table->string('user_id');
             $table->text('description');
+            $table->string('image')->nullable();
             $table->timestamps();
-
-            $table->foreign('created_by')->references('no_id')->on('users');
-
+            $table->foreign('user_id')->references('no_id')->on('users');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catalogs');
+        Schema::dropIfExists('logbook');
     }
 };

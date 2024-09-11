@@ -23,6 +23,7 @@ class LogbookFactory extends Factory
             //
             'user_id' => $existingUser->no_id,
             'description' => $this->faker->sentence(),
+            'image' => $this->faker->image('public/logbook', 320, 240, null, false),
         ];
     }
 }
