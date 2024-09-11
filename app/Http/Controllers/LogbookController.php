@@ -11,25 +11,24 @@ class LogbookController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
         try {
-            
             $userId = Auth::user()->no_id;
+            $logbook = Logbook::where('user_id', $userId)
+                ->with('logbookUser:id,no_id,name')
+                ->paginate(10);
 
-        $logbook = Logbook::where('user_id',$userId)
-        ->with('logbookUser:id,no_id,name')
-        ->paginate(10);
-
-        // return view('logbook.index', compact('logbook'))
+            return view('logbook.index', compact('logbook'));
 
         } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Terjadi kesalahan saat mengambil data logbook',
-                'error' => $e->getMessage()
-            ], 500);
+            return back()->withErrors(['error' => 'Terjadi kesalahan saat mengambil data logbook: ' . $e->getMessage()]);
         }
     }
 
@@ -60,7 +59,7 @@ class LogbookController extends Controller
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors('Terjadi kesalahan saat menambah logbook'.$e->getMessage())->withInput();
+            return redirect()->back()->withErrors('Terjadi kesalahan saat menambah logbook' . $e->getMessage())->withInput();
         }
     }
 
@@ -72,12 +71,12 @@ class LogbookController extends Controller
         //
         try {
             $userId = Auth::user()->no_id;
-        $logbook = Logbook::where('id',$id)->where('user_id',$userId)->firstOrFail();
-        
-        return view('logbook.show',compact('logbook'));
+            $logbook = Logbook::where('id', $id)->where('user_id', $userId)->firstOrFail();
+
+            return view('logbook.show', compact('logbook'));
 
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors('Terjadi kesalahan saat mencari logbook'. $e->getMessage())->withInput();
+            return redirect()->back()->withErrors('Terjadi kesalahan saat mencari logbook' . $e->getMessage())->withInput();
         }
 
     }

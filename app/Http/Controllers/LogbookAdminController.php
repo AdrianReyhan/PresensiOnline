@@ -10,9 +10,25 @@ class LogbookAdminController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin'); // Ensure only admin can access
+    }
+    
     public function index()
     {
         //
+        try {
+            $logbook = Logbook::with('logbookUser:id,no_id,name')
+                ->paginate(10);
+
+            return view('logbook.index', compact('logbook'));
+
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Terjadi kesalahan saat mengambil data logbook: ' . $e->getMessage()]);
+        }
     }
 
     /**
