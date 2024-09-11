@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         \App\Models\User::factory(20)->create();
-        \App\Models\Catalog::factory(50)->create();
+        \App\Models\Logbook::factory(50)->create();
     }
 }

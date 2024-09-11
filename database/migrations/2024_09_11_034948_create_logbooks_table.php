@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('logbooks', function (Blueprint $table) {
+        Schema::create('logbook', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('user_id');
+            $table->text('description');
+
+            $table->foreign('user_id')->references('no_id')->on('users');
         });
     }
 
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('logbooks');
+        Schema::dropIfExists('logbook');
     }
 };

@@ -88,7 +88,7 @@ class User extends Authenticatable
 
     public function catalog()
     {
-        return $this->hasMany(Catalog::class,'created_by');
+        return $this->hasMany(Logbook::class,'user_id');
     }
 
     

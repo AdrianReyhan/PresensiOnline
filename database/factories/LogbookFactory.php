@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,12 @@ class LogbookFactory extends Factory
      */
     public function definition(): array
     {
+        $existingUser = User::inRandomOrder()->first();
+
         return [
             //
+            'user_id' => $existingUser->no_id,
+            'description' => $this->faker->sentence(),
         ];
     }
 }
