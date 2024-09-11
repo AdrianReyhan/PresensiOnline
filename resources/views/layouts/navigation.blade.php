@@ -37,13 +37,24 @@
     </li> --}}
     @endif
 
-    @if (Auth::check() && (Auth::user()->role === 'admin' || Auth::user()->role === 'pegawai'))
+    @if (Auth::check() && Auth::user()->role === 'admin')
         <li class="nav-item {{ request()->routeIs('presensis.index') ? 'active' : '' }}">
             <a href="{{ route('presensis.index') }}" class="nav-link">
                 <span class="sidebar-icon me-3">
                     <i class="fa-solid fa-fingerprint"></i>
                 </span>
                 <span class="sidebar-text">&nbsp;{{ __('Data Presensi') }}</span>
+            </a>
+        </li>
+    @endif
+
+    @if (Auth::check() && Auth::user()->role === 'pegawai')
+        <li class="nav-item {{ request()->routeIs('presensis.index') ? 'active' : '' }}">
+            <a href="{{ route('presensis.index') }}" class="nav-link">
+                <span class="sidebar-icon me-3">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </span>
+                <span class="sidebar-text">&nbsp;{{ __('Presensi') }}</span>
             </a>
         </li>
     @endif

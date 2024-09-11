@@ -8,9 +8,9 @@
                 <li class="breadcrumb-item"><a href="{{ route('users.index') }}">User</a></li>
                 <li class="breadcrumb-item active">Edit</li>
             </ol>
-            @include('components.back-besar-button', ['url' => 'users', 'id' => $user->id])
+            @include('components.back-besar-button', ['url' => 'admin/users', 'id' => $user->id])
 
-            <form action="{{ url('users/' . $user->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
